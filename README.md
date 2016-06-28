@@ -37,7 +37,7 @@ For this challenge, we provide you a server which provides you with the [followi
 Your challenge is to implement the following design and fulfil the functional requirements listed below. You can implement the design using any library/frameworks you like or just good old plain html/css.
 
 #### Functional requirement
-##### 1. Signup and Login
+##### 1. Signup, Login, Logout
   Implement signup and login using [auth0](https://auth0.com/docs).
       
 ##### 2. Show list of reminders
@@ -45,7 +45,8 @@ Your challenge is to implement the following design and fulfil the functional re
   
 ##### 3. Add a reminder
 
-  Add a reminder which accepts the date-time and message. Both date-time and message are required.
+  Add a reminder which accepts the date-time and message and phone_number.
+  Both date-time and message are required fields but phone_number is not required field. If you provide the phone_number while adding the reminder then reminder will be sent as SMS to phone_number, if not it will send the mail to the signed in email.
 
 ##### 4. Edit reminder
   User can edit date-time and/or message. Saving those changes will update the reminder, cancel will revert back the changes.User can edit completed reminders also. Editing reminder functionality should work for both active and completed reminders. As soon as user edits the date-time of completed reminder to upcoming date-time, that reminder should be moved to active list of reminders.
