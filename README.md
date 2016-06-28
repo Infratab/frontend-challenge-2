@@ -39,7 +39,7 @@ Your challenge is to implement the following design and fulfil the functional re
 #### Functional requirement
 ##### 1. Signup, Login, Logout
 
-Store the token in the browser, if the token has the value then that means user is logged in, if not user is logged out. If user is logged out, show the login page. Choose your choice how you want to show the login and signup page( ex: login, signup can be in same page with tabs or seperate pages for login, signup ).
+Store the token in the browser(Choose how you want to store). If the token is stored then render the home page, if not stored show login page, point to sign up page from login page. Choose your choice how you want to show the login and signup page( ex: login, signup can be in same page with tabs or seperate pages for login, signup ).
 
 In this case you have to set the authentication header for each api call you make.
       
