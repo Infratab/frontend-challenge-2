@@ -17,10 +17,12 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from customers.views import signup
+from remind_me import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('reminders.urls')),
     url(r'^register/', signup),
     url(r'^rest-auth/', include('rest_auth.urls')),
+    url(r'^', views.home)
 ]
