@@ -27,7 +27,7 @@ We would like you to follow the Github flow to participate in the coding challen
 1. go to remind_me directory - `cd frontend-challenge-2/remind_me` 
 2. run - `vagrant up`
 3. run - `vagrant ssh`
-4. Open http://localhost:3000/ in browser, if you see `Challenge accpted!` text in the browser that means server is successfully running
+4. Open http://localhost:3000/ in browser, if you see `Challenge accepted!` text in the browser that means server is successfully running
 5. Please find `index.html` in the `remind_me/public` folder
 6. Now you can start your coding!
 
