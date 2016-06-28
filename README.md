@@ -50,7 +50,7 @@ In this case you have to set the authentication header for each api call you mak
 
   Add a reminder which accepts the date-time, message and phone_number.
   
-  Both date-time and message are required fields but phone_number is not required field. If you provide the phone_number while adding the reminder then reminder will be sent as SMS to phone_number, if not it will send the mail to the signed in email.
+  Both date-time and message are required fields but phone number is not required field. If you provide the phone number while adding the reminder then reminder will be sent as SMS to phone number, if not it will send the mail to the signed in email.
 
 ##### 4. Edit reminder
   User can edit date-time, phone_number, message. Saving those changes will update the reminder, cancel will revert back the changes.User can edit completed reminders also. Editing reminder functionality should work for both active and completed reminders. As soon as user edits the date-time of completed reminder to upcoming date-time, that reminder should be moved to active list of reminders.
