@@ -33,7 +33,7 @@ We would like you to follow the Github flow to participate in the coding challen
 
 ### Challenge
 
-For this challenge, we provide you a server which provides you with the [following api endpoints](https://github.com/Infratab/Twitter-Trends/blob/master/API.md)
+For this challenge, we provide you a server which provides you with the [following api endpoints](https://github.com/Infratab/frontend-challenge-2/blob/master/API.md)
 
 Your challenge is to implement the following design and fulfil the functional requirements listed 
 
