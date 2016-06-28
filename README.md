@@ -39,8 +39,6 @@ Your challenge is to implement the following design and fulfil the functional re
 #### Functional requirement
 ##### 1. Signup and Login
   Implement signup and login using [auth0](https://auth0.com/docs).
-  
-  _New to auth0? don't worry! It is simple to work with [auth0](https://auth0.com/docs)_
       
 ##### 2. Show list of reminders
   Show the list of all reminders that were added with edit and remove buttons. Show completed reminders and active reminders as two different list.
