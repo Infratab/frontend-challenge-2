@@ -38,11 +38,12 @@ We would like you to follow the Github flow to participate in the coding challen
 3. Email the compressed folder to careers@infratab.in or to the person with whom you have been interacting!
 
 ### Setup the project
-1. Run npm install
-2. Run `npm start` to run server
-3. Open `http://localhost:3001/` in browser, if you see `Here you go!` text in the browser that means server is successfully running
-4. Please find `index.html` in the `public` folder
-5. Now you can start your coding!
+1. go to remind_me directory - `cd frontend-challenge-2/remind_me` 
+2. run - `vagrant up`
+3. run - `vagrant ssh`
+4. Now you can access API's at localhost:3000
+5. Please find `index.html` in the `public` folder
+6. Now you can start your coding!
 
 ### Challenge
 
