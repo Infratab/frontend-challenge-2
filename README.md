@@ -39,7 +39,12 @@ Your challenge is to implement the following design and fulfil the functional re
 #### Functional requirement
 ##### 1. Signup, Login, Logout
 
-Store the token in the browser(Choose how you want to store). If the token is stored then render the home page, if not stored show login page, point to sign up page from login page. Choose your choice how you want to show the login and signup page( ex: login, signup can be in same page with tabs or seperate pages for login, signup ).
+Decide whether user is logged in or not based the token value stored. Store the token in the browser(Choose how you want to store, ex: Local storage, websql). If the token is stored then render the home page(Where you perform all reminders actions), if not stored show login page, point to sign up page from login page. It's upto you how you want to show the login and signup page( ex: login, signup can be in same page with tabs or seperate pages for login, signup ).
+
+Once user is logged in, Show the page as given in the above image (//need to upload the image).
+
+**NOTE:** All the API's are authenticated, So you have to set the request header.
+Set the request header `Authorization` with the value "Token <tokenValue>", while making each api call. Where you get the `tokenValue` from [/rest-auth/login/](https://github.com/Infratab/frontend-challenge-2/blob/master/API.md#rest-authlogin) or [/register/](https://github.com/Infratab/frontend-challenge-2/blob/master/API.md#register) response.
 
 In this case you have to set the authentication header for each api call you make.
       
