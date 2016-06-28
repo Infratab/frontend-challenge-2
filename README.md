@@ -39,7 +39,7 @@ Your challenge is to implement the following design and fulfil the functional re
 #### Functional requirement
 ##### 1. Signup, Login, Logout
 
-Decide whether user is logged in or not based the token value stored. Store the token in the browser(Choose how you want to store, ex: Local storage, websql). If the token is stored then render the home page(Where you perform all reminders actions), if not stored show login page, point to sign up page from login page. It's upto you how you want to show the login and signup page( ex: login, signup can be in same page with tabs or seperate pages for login, signup ).
+Store the token in the browser (where you get the token when you login/ signup). Based on the token stored decide whether to show login or home page.
 
 Once user is logged in, Show the page as given in the above image (//need to upload the image).
 
