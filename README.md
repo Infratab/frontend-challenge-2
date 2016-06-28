@@ -43,10 +43,7 @@ Decide whether user is logged in or not based the token value stored. Store the 
 
 Once user is logged in, Show the page as given in the above image (//need to upload the image).
 
-**NOTE:** All the API's are authenticated, So you have to set the request header.
-Set the request header `Authorization` with the value `"Token {tokenValue}"`, while making each api call. Where you get the `tokenValue` from [/rest-auth/login/](https://github.com/Infratab/frontend-challenge-2/blob/master/API.md#rest-authlogin) or [/register/](https://github.com/Infratab/frontend-challenge-2/blob/master/API.md#register) response.
-
-In this case you have to set the authentication header for each api call you make.
+**NOTE:** All the API's are authenticated.
       
 ##### 2. Show list of reminders
   Show the list of all reminders that were added with edit and remove buttons. Show completed reminders and active reminders as two different list.
@@ -59,8 +56,6 @@ In this case you have to set the authentication header for each api call you mak
 
 ##### 4. Edit reminder
   User can edit date-time, phone_number, message. Saving those changes will update the reminder, cancel will revert back the changes.User can edit completed reminders also. Editing reminder functionality should work for both active and completed reminders. As soon as user edits the date-time of completed reminder to upcoming date-time, that reminder should be moved to active list of reminders.
-  
-**NOTE:** For **Add** and **Edit** reminders, either add a validation such that user can select only upcoming date-time or show some error message.
 
 ##### 6. Remove reminder
  User can remove any reminder.
