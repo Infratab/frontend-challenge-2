@@ -45,7 +45,8 @@ Your challenge is to implement the following design and fulfil the functional re
   
 ##### 3. Add a reminder
 
-  Add a reminder which accepts the date-time and message and phone_number.
+  Add a reminder which accepts the date-time, message and phone_number.
+  
   Both date-time and message are required fields but phone_number is not required field. If you provide the phone_number while adding the reminder then reminder will be sent as SMS to phone_number, if not it will send the mail to the signed in email.
 
 ##### 4. Edit reminder
