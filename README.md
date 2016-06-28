@@ -38,6 +38,8 @@ Your challenge is to implement the following design and fulfil the functional re
 
 #### Functional requirement
 ##### 1. Signup, Login, Logout
+
+Store the token in the browser, if the token has the value then that means user is logged in, if not user is logged out. If user is logged out, show the login page. Choose your choice how you want to show the login and signup page( ex: login, signup can be in same page with tabs or seperate pages for login, signup )
       
 ##### 2. Show list of reminders
   Show the list of all reminders that were added with edit and remove buttons. Show completed reminders and active reminders as two different list.
