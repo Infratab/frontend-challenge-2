@@ -27,7 +27,7 @@
 
 ## REMINDER API'S
 
-Set the request header `Authorization` with the value `"Token {tokenValue}"`.
+Set the request header `Authorization` with the value `"Token {tokenValue}"` while making api calls.
 ### /reminders
 - method: GET
 - response: 
