@@ -56,7 +56,3 @@ Your challenge is to implement the following design and fulfil the functional re
 
 ##### 6. Remove reminder
  User can remove any reminder.
-
-
-
- 
