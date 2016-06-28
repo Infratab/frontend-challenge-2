@@ -44,7 +44,7 @@ Decide whether user is logged in or not based the token value stored. Store the 
 Once user is logged in, Show the page as given in the above image (//need to upload the image).
 
 **NOTE:** All the API's are authenticated, So you have to set the request header.
-Set the request header `Authorization` with the value "Token <tokenValue>", while making each api call. Where you get the `tokenValue` from [/rest-auth/login/](https://github.com/Infratab/frontend-challenge-2/blob/master/API.md#rest-authlogin) or [/register/](https://github.com/Infratab/frontend-challenge-2/blob/master/API.md#register) response.
+Set the request header `Authorization` with the value "Token {tokenValue}", while making each api call. Where you get the `tokenValue` from [/rest-auth/login/](https://github.com/Infratab/frontend-challenge-2/blob/master/API.md#rest-authlogin) or [/register/](https://github.com/Infratab/frontend-challenge-2/blob/master/API.md#register) response.
 
 In this case you have to set the authentication header for each api call you make.
       
