@@ -32,7 +32,7 @@ We would like you to follow the Github flow to participate in the coding challen
 6. Now you can start your coding!
 
 #### Challenge
-For this challenge, we provide you a server which provides you with the [following api endpoints]().
+For this challenge, we provide you a server which provides you with the [following api endpoints](https://github.com/Infratab/frontend-challenge-2/edit/master/API.md).
 
 Your challenge is to implement the following design and fulfil the functional requirements listed below. You can implement the design using any library/frameworks you like or just good old plain html/css.
 
