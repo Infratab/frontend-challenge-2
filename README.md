@@ -49,7 +49,7 @@ Once user is logged in, Show the page as given in the above image (//need to upl
 ##### 2. Show list of reminders
   Show the list of all reminders that were added with edit and remove buttons. Show completed reminders and upcoming reminders as two different list.
   
-  <img width="512" alt="mockup-1" src="https://cloud.githubusercontent.com/assets/12729226/16449672/6a166696-3e16-11e6-98d4-2ea54aa92588.png">
+<img width="700" alt="mockup-1" src="https://cloud.githubusercontent.com/assets/12729226/16449755/e0de59d2-3e16-11e6-94fe-0c6091696a8f.png">
   
 ##### 3. Add a reminder
 
@@ -60,11 +60,11 @@ Once user is logged in, Show the page as given in the above image (//need to upl
 ##### 4. Edit reminder
   User can edit date-time, phone_number, message. Saving those changes will update the reminder, cancel will revert back the changes.
   
-  <img width="512" alt="mockup-3 edit upcoming reminder" src="https://cloud.githubusercontent.com/assets/12729226/16449680/7b936130-3e16-11e6-80e5-d935150b6761.png">
+  <img width="700" alt="mockup-3 edit upcoming reminder" src="https://cloud.githubusercontent.com/assets/12729226/16449680/7b936130-3e16-11e6-80e5-d935150b6761.png">
   
   User can edit completed reminders also. Editing reminder functionality should work for both active and completed reminders. As soon as user edits the date-time of completed reminder to upcoming date-time, that reminder should be moved to active list of reminders.
   
-  <img width="512" alt="mockup-4 edit compeletd reminder" src="https://cloud.githubusercontent.com/assets/12729226/16449701/998bfa58-3e16-11e6-9a98-e24fd3942098.png">
+  <img width="700" alt="mockup-4 edit compeletd reminder" src="https://cloud.githubusercontent.com/assets/12729226/16449701/998bfa58-3e16-11e6-9a98-e24fd3942098.png">
 
 
 ##### 6. Remove reminder
