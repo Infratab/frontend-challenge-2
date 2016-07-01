@@ -35,19 +35,17 @@ We would like you to follow the Github flow to participate in the coding challen
 #### Challenge
 For this challenge, we provide you a server which provides you with the [following api endpoints](https://github.com/Infratab/frontend-challenge-2/blob/master/API.md).
 
-Your challenge is to implement the following design and fulfil the functional requirements listed below. You can implement the design using any library/frameworks you like or just good old plain html/css.
+Your challenge is to implement the following designs given in the below section and fulfil the functional requirements listed below. You can implement the design using any library/frameworks you like or just good old plain html/css.
 
 #### Functional requirement
 ##### 1. Signup, Login, Logout
 
-Store the token in the browser (where you get the token when you login/ signup). Based on the token stored decide whether to show login or home page.
+On signup or login you will get the token, ttore the token in the browser. Based on the token stored decide whether to show login or home page.
 
-Once user is logged in, Show the page as given in the above image (//need to upload the image).
-
-**NOTE:** All the API's are authenticated.
+**NOTE:** All the [API's](https://github.com/Infratab/frontend-challenge-2/blob/master/API.md#reminder-apis) are authenticated.
       
 ##### 2. Show list of reminders
-  Show the list of all reminders that were added with edit and remove buttons. Show completed reminders and upcoming reminders as two different list.
+  Show the list of reminders as shown in the below image.
   
 <img width="700" alt="mockup-1" src="https://cloud.githubusercontent.com/assets/12729226/16512744/5d770dfc-3f7c-11e6-9eb0-836587a74204.png">
   
@@ -55,16 +53,14 @@ Once user is logged in, Show the page as given in the above image (//need to upl
 
   Add a reminder which accepts the date-time, message and phone_number.
   
-  Both date-time and message are required fields but phone number is not required field. If you provide the phone number while adding the reminder then reminder will be sent as SMS to phone number, if not it will send the mail to the signed in email.
+  Both date-time and message are required fields but phone number is an optional field. If you provide the phone number while adding the reminder then reminder will be sent as SMS to phone number, if not it will send the mail to the signed in email.
 
 ##### 4. Edit reminder
-  User can edit date-time, phone_number, message. Saving those changes will update the reminder, cancel will revert back the changes.
+  User can edit date-time, phone_number, message of `Upcoming reminders`.
   
   <img width="700" alt="mockup-3 edit upcoming reminder" src="https://cloud.githubusercontent.com/assets/12729226/16512749/6f32095c-3f7c-11e6-9a51-9ab788516a5d.png">
 
-  
-  User can edit completed reminders also. Editing reminder functionality should work for both active and completed reminders. As soon as user edits the date-time of completed reminder to upcoming date-time, that reminder should be moved to active list of reminders.
-  
+  User can repeat any reminder by clicking on `Remind again` button. On click of `Remind again` button, that reminder details has to be filled in `Add reminder` section, So that user can add that reminder again.
 
 
 ##### 6. Remove reminder
