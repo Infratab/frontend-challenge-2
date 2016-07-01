@@ -40,7 +40,7 @@ Your challenge is to implement the following designs given in the below section 
 #### Functional requirement
 ##### 1. Signup, Login, Logout
 
-On signup or login you will get the token, ttore the token in the browser. Based on the token stored decide whether to show login or home page.
+On signup or login you will get the token as a response, store the token in the browser. Based on the token stored decide whether to show login or home page.
 
 **NOTE:** All the [API's](https://github.com/Infratab/frontend-challenge-2/blob/master/API.md#reminder-apis) are authenticated.
       
