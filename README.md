@@ -58,10 +58,10 @@ On signup or login you will get the token as a response, store the token in the 
 ##### 4. Edit reminder
   User can edit date-time, phone_number, message of `Upcoming reminders`.
   
-  <img width="700" alt="mockup-3 edit upcoming reminder" src="https://cloud.githubusercontent.com/assets/12729226/16512749/6f32095c-3f7c-11e6-9a51-9ab788516a5d.png">
-
   User can repeat any reminder by clicking on `Remind again` button. On click of `Remind again` button, that reminder details has to be filled in `Add reminder` section, So that user can add that reminder again.
+  
+  <img width="700" alt="mockup-3 edit upcoming reminder" src="https://cloud.githubusercontent.com/assets/12729226/16512749/6f32095c-3f7c-11e6-9a51-9ab788516a5d.png">
 
 
 ##### 6. Remove reminder
- User can remove any reminder.
+ User can remove any Upcoming reminders or they can delete Past reminders.
