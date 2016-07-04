@@ -47,7 +47,7 @@ On signup or login you will get the token as a response, store the token in the 
 ##### 2. Show list of reminders
   Show the list of reminders as shown in the below image.
   
-<img width="700" alt="mockup-1" src="https://cloud.githubusercontent.com/assets/12729226/16512744/5d770dfc-3f7c-11e6-9eb0-836587a74204.png">
+<img width="700" alt="mockup-1" src="https://cloud.githubusercontent.com/assets/12729226/16552159/4fe76e90-41dc-11e6-8627-e304fcc52369.png">
   
 ##### 3. Add a reminder
 
@@ -60,7 +60,7 @@ On signup or login you will get the token as a response, store the token in the 
   
   User can repeat any reminder by clicking on `Remind again` button. On click of `Remind again` button, that reminder details has to be filled in `Add reminder` section, So that user can add that reminder again.
   
-  <img width="700" alt="mockup-3 edit upcoming reminder" src="https://cloud.githubusercontent.com/assets/12729226/16512749/6f32095c-3f7c-11e6-9a51-9ab788516a5d.png">
+  <img width="700" alt="mockup-3 edit upcoming reminder" src="https://cloud.githubusercontent.com/assets/12729226/16552166/6173e6ca-41dc-11e6-9f52-4b8232b0f14f.png">
 
 
 ##### 6. Remove reminder
