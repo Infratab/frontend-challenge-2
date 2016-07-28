@@ -1,0 +1,159 @@
+<div layout="row">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>
+        <span>Dashboard</span>
+      </h2>
+      <span flex></span>
+      <md-menu>
+        <md-button class="md-primary" aria-label="Open user menu" ng-click="$mdOpenMenu()">
+          {{username}}
+        </md-button>
+        <md-menu-content width="3">
+          <md-menu-item>
+            <md-button ng-click="logout()">
+              Logout
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+    </div>
+  </md-toolbar>
+</div>
+<div layout="column" layout-align="space-around stretch" layout-padding>
+  <h1 class="md-headline">Add Reminder</h1>
+  <md-content flex layout-padding>
+    <form name="reminder">
+      <div layout="row" flex="100" layout-align="space-around center">
+        <md-input-container flex="40">
+          <label for="msg">Message</label>
+          <input id="msg" label="msg" name="msg" type="text" ng-model="reminder.message" required/>
+          <ng-messages for="reminder.msg.$error" ng-if="reminder.msg.$dirty">
+            <div ng-message when="required">
+              Message is required.
+            </div>
+          </ng-messages>
+        </md-input-container>
+        <md-input-container flex="20">
+          <label for="phoneNumber">Phone Number</label>
+          <input id="phoneNumber" label="phoneNumber" name="phoneNumber" ng-pattern="/^\d+$/" type="text"
+                 ng-model="reminder.phone_number" required/>
+          <ng-messages for="reminder.phoneNumber.$error" ng-if="reminder.phoneNumber.$dirty">
+            <div ng-message when="required">
+              Phone Number is required.
+            </div>
+            <div ng-message when="pattern">
+              Enter valid number.
+            </div>
+          </ng-messages>
+        </md-input-container>
+        <md-input-container flex="20">
+          <label for="date_time">Date and Time</label>
+          <input mdc-datetime-picker="" date="true" time="true" type="text" id="date_time" name="date_time"
+                 min-date="minDate" format="DD-MMM-YYYY HH:mm" ng-model="reminder.scheduled_datetime"
+                 class=" md-input" required>
+          <ng-messages for="reminder.date_time.$error" ng-if="reminder.date_time.$dirty">
+            <div ng-message when="required">
+              This field is required.
+            </div>
+          </ng-messages>
+        </md-input-container>
+        <md-button
+            class="md-primary"
+            ng-click="saveReminder(reminder)" ng-disabled="reminder.$invalid">Add
+        </md-button>
+      </div>
+    </form>
+  </md-content>
+  <h1 class="md-headline">Upcoming Reminders</h1>
+  <md-content flex layout-padding height="400px">
+    <md-card ng-repeat="upcomingEvent in  upcomingEvents | orderBy:'scheduled_datetime'"
+             layout-align="space-around center" layout="row">
+      <md-card-title flex="75" style="padding: 0px" ng-if="!upcomingEvent.showForm && !upcomingEvent.showDelete">
+        <md-card-title-text>
+          <span class="md-headline">{{upcomingEvent.message}} - <span class="md-subhead">{{upcomingEvent.scheduled_datetime | date:'dd MMM @ hh:mm a'}}</span></span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-actions layout="row" layout-align="end center"
+                       ng-if="!upcomingEvent.showForm && !upcomingEvent.showDelete">
+        <md-button class="md-primary" ng-click="showForm(upcomingEvent)">Edit</md-button>
+        <md-button class="md-accent" ng-click="showDelete(upcomingEvent)">Remove</md-button>
+      </md-card-actions>
+      <ng-form name="editEvent" ng-if="upcomingEvent.showForm">
+        <div layout="row" flex="100" layout-align="space-between center">
+          <md-input-container flex="40">
+            <label for="msg">Message</label>
+            <input id="edit_msg" label="edit_msg" name="edit_msg" type="text" ng-model="upcomingEvent.newData.message"
+                   required/>
+            <ng-messages for="editEvent.edit_msg.$error" ng-if="editEvent.edit_msg.$dirty">
+              <div ng-message when="required">
+                Message is required.
+              </div>
+            </ng-messages>
+          </md-input-container>
+          <md-input-container flex="20">
+            <label for="edit_phoneNumber">Phone Number</label>
+            <input id="edit_phoneNumber" label="edit_phoneNumber" name="edit_phoneNumber" ng-pattern="/^\d+$/"
+                   type="text"
+                   ng-model="upcomingEvent.newData.phone_number" required/>
+            <ng-messages for="editEvent.edit_phoneNumber.$error" ng-if="editEvent.edit_phoneNumber.$dirty">
+              <div ng-message when="required">
+                Phone Number is required.
+              </div>
+              <div ng-message when="pattern">
+                Enter valid number.
+              </div>
+            </ng-messages>
+          </md-input-container>
+          <md-input-container flex="20">
+            <label for="edit_date_time">Date and Time</label>
+            <input mdc-datetime-picker="" date="true" time="true" type="text" id="edit_date_time" name="edit_date_time"
+                   min-date="minDate" format="DD-MMM-YYYY HH:mm" ng-model="upcomingEvent.newData.scheduled_datetime"
+                   class=" md-input" required>
+            <ng-messages for="editEvent.edit_date_time.$error" ng-if="editEvent.edit_date_time.$dirty">
+              <div ng-message when="required">
+                This field is required.
+              </div>
+            </ng-messages>
+          </md-input-container>
+          <md-button
+              class="md-primary"
+              ng-click="editReminder(upcomingEvent)" ng-disabled="editEvent.$invalid">Save
+          </md-button>
+          <md-button
+              class="md-accent"
+              ng-click="showForm(upcomingEvent)">Cancel
+          </md-button>
+        </div>
+      </ng-form>
+      <div class="row" layout-padding layout-align="space-around center" ng-if="upcomingEvent.showDelete">
+        <span class="md-headline">Are you sure to delete this reminder? </span>
+        <md-button
+            class="md-primary"
+            ng-click="deleteReminder(upcomingEvent,$index,'upcoming')">YES
+        </md-button>
+        <md-button
+            class="md-accent"
+            ng-click="showDelete(upcomingEvent)">NO
+        </md-button>
+      </div>
+    </md-card>
+  </md-content>
+  <h1 class="md-headline">Past Reminders</h1>
+  <md-content flex layout-padding>
+    <md-card ng-repeat="pastEvent in  pastEvents " layout-align="space-around center" layout="row">
+      <md-card-title flex="75" style="padding: 0px">
+        <md-card-title-text>
+          <div>
+            <span class="md-headline past-event">{{pastEvent.message}}</span>
+            <span class="md-subhead"> {{pastEvent.scheduled_datetime | date:'dd MMM @ hh:mm a'}}</span>
+          </div>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-actions layout="row" layout-align="end center">
+        <md-button class="md-primary" ng-click="remindAgain(pastEvent,$index)">Remind Again</md-button>
+        <md-button class="md-accent" ng-click="deleteReminder(pastEvent,$index,'past')">Delete</md-button>
+      </md-card-actions>
+    </md-card>
+  </md-content>
+</div>
