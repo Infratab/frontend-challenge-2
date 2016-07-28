@@ -1,6 +1,6 @@
 'use strict';
 angular.module('reminder')
-  .controller('dashboardController', function ($scope, Session, reminderService, $mdToast, $location, $anchorScroll) {
+  .controller('dashboardController', function ($scope, Session, reminderService, $mdToast, $location, $anchorScroll, $state) {
     $scope.username = Session.getEmail();
     $scope.reminder = {phone_number: '', message: '', scheduled_datetime: ''};
     //TODO Limit the reminders in upcoming and past by 5 and and use (Load More) option when the user scrolls.
@@ -93,5 +93,9 @@ angular.module('reminder')
       } else {
         $anchorScroll();
       }
+    };
+    $scope.logout = function () {
+      Session.destroy();
+      $state.go('login')
     };
   });
