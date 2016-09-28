@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="/static/js/jquery.min.js"></script>
+	<link rel="stylesheet" href="/static/styles/semantic.min.css">
+	<script src="/static/js/semantic.min.js"></script>
+	<link rel="stylesheet" href="/static/styles/custom.css">
+	<link rel="stylesheet"  href="/static/styles/jquery.datetimepicker.min.css">
+	<script src="/static/js/jquery.datetimepicker.full.min.js"></script>
+	<script src="/static/js/addrem.js"></script>
+</head>
+<body onload="showreminder()">
+<nav class="ui right floated topbar">
+	<span class="topbarspan"></span>
+</nav>
+<div class="middle">
+	<div class="ui text addrem"> Add Reminder </div>
+	<div class="ui input msgdiv">
+		<input class="message" type="text" name="message" placeholder="Your message here">
+	</div>
+	<div class="ui input phndiv">
+		<input class="phone" type="text" name="phone_number" placeholder="Your phone number">
+	</div>
+	<div class="ui icon input caldiv">
+		<input class="date" type="text" name="scheduled_datetime" id="datetimepicker" placeholder="Select Date and Time">
+		<i class="green calendar icon"></i>
+	</div>
+	<div class="addbtn ui teal button" type="submit" onclick="addreminder()">
+		Add
+	</div>
+</div>
+<div class="upcomingreminders">
+	<div class="ui text uprem">Upcoming reminders</div>
+	<div class="ui list reminderlist"  id="reminderlist">
+		<ul id="listreminder">
+		</ul>
+	</div>
+</div>
+<div class="pastreminders">
+	<div class="ui text pastrem">Past reminders</div>
+	<div class="ui list reminderlistpast"  id="reminderlistpast">
+		<ul id="listpastreminder">
+		</ul>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	jQuery('#datetimepicker').datetimepicker({});
+</script>
+</html>

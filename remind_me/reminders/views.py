@@ -67,6 +67,7 @@ class Reminders(APIView):
             if request.user.customer == reminder.customer:
                 data = get_data_from_request(request)
                 serializer = ReminderSerializer(instance=reminder, data=data)
+                print(serializer.is_valid())
 
                 if serializer.is_valid():
                     serializer.save()
