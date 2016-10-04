@@ -1,11 +1,11 @@
 var values;
 var token = sessionStorage.getItem("token");
 // console.log(token);
+var username = sessionStorage.getItem("username");
 $(document).ready(function(){
     document.getElementsByClassName('topbarspan')[0].innerHTML =  username;
 });
 
-var username = sessionStorage.getItem("username");
 // console.log(username);
 function addreminder() {
     var date = new Date(document.getElementsByClassName('date')[0].value);
@@ -54,6 +54,11 @@ var pastListHtml = "";
     
 function showreminder(){
     // var token = '2200d7faf10f34cd9df0732fe49246560f282a4a';
+    console.log(token);
+    if(token === null){
+        sessionStorage.setItem('Error',"Please  login to continue");
+    window.location.href = '/';
+    }
     urem = 0;
     premin = 0;
     upComingListHtml = "";
@@ -190,6 +195,7 @@ function deletereminder(id){
 
 function logout(){
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('username');
     window.location.href = "/";
 }
 

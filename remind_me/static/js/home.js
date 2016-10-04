@@ -1,5 +1,19 @@
 var token;
 var username;
+var error = sessionStorage.getItem("Error");
+
+function load(){
+	err = document.getElementById('err')
+	if (error !== null) {
+		err.innerHTML = error;
+		err.style.display = "block";
+	}
+	else{
+		err.innerHTML="";
+		err.value="";
+	}
+}
+
 function userlogin(){
     // var token = '2200d7faf10f34cd9df0732fe49246560f282a4a';
     username=$("#emailtextbox").val();
@@ -32,8 +46,6 @@ function userlogin(){
           }
     	},
     	error: function(){
-    		err = document.getElementById("err");
-        
           	err.innerHTML = "Invalid Username or Passsword";
           	err.style.display = "block";
     	}
