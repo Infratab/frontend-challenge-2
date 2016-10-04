@@ -26,12 +26,7 @@
 	top:0;
 	z-index: 1000;
 }
-.topbar span{
-	color: white;
-	float: right;
-	margin-right: 15px;
-	margin-top: 10px;
-}
+
 .addrem{
 	padding-top: 15px;
 	margin: 10px 18px;
@@ -75,4 +70,18 @@ li p{
 }
 .pastremind p{
 	text-decoration: line-through;
+}
+#errspan{
+	color: red;
+	padding-left: 15px;
+	padding-top: 10px;
+}
+.topbarspan{
+	margin-top: -25px !important;
+	color: white;
+}
+.drpdwn{
+	color: white;
+	margin-top: -25px !important;
+	margin-right: 10px !important;	
 }

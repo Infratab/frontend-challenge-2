@@ -34,6 +34,7 @@ class ReminderSerializer(serializers.Serializer):
     @staticmethod
     def create(validated_data):
         reminder = Reminder()
+        print("Here")
         reminder.customer = validated_data['customer']
         reminder.message = validated_data.get('message')
         reminder.scheduled_datetime = validated_data.get('scheduled_datetime')

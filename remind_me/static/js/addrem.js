@@ -6,15 +6,15 @@ $(document).ready(function(){
 });
 
 var username = sessionStorage.getItem("username");
-console.log(username);
+// console.log(username);
 function addreminder() {
-    var dt = new Date(document.getElementsByClassName('date')[0].value);
-    dt = dt.toISOString();
-    console.log(dt);
+    var date = new Date(document.getElementsByClassName('date')[0].value);
+    date = date.toISOString();
+    // console.log(dt);
     var values = {
         'message': document.getElementsByClassName('message')[0].value,
         'phone_number': document.getElementsByClassName('phone')[0].value,
-        'scheduled_datetime':dt
+        'scheduled_datetime':date
     };
     // var token = '2200d7faf10f34cd9df0732fe49246560f282a4a';
     $.ajax({
@@ -23,21 +23,41 @@ function addreminder() {
         data: values,
         headers: {
             'Authorization': 'Token '+token
-        }
+        },
+        success : function(){
+            $(".date").text(" ");
+            document.getElementsByClassName('message')[0].innerHTML = "";
+            document.getElementsByClassName('phone')[0].innerHTML = "";
+            document.getElementsByClassName('message')[0].value = "";
+            document.getElementsByClassName('phone')[0].value = "";
+            document.getElementById('errspan').innerHTML = "";
+            document.getElementById('errspan').value = "";
+            document.getElementsByClassName('date')[0].value = "";
+            document.getElementsByClassName('date')[0].innerHTML = "";
+
+            showreminder();
+        },
+        error: function(data){
+            // console.log(data.responseText);
+            // console.log(data.responseText.slice(22,-3));
+            var errmsg = data;
+            document.getElementById('errspan').innerHTML = data.responseText.slice(22,-3);
+            }
     });
-    showreminder();
 }
 
 // function hidereminders(){
 //     document.getElementById("reminderlist").style.display = "none";
 // }
-var ihtml = "";
-var jhtml = "";
+var upComingListHtml = "";
+var pastListHtml = "";
     
 function showreminder(){
     // var token = '2200d7faf10f34cd9df0732fe49246560f282a4a';
-    ihtml = "";
-    jhtml = "";
+    urem = 0;
+    premin = 0;
+    upComingListHtml = "";
+    pastListHtml = "";
      $.ajax({
         url: "/reminders/",
         type: "GET",
@@ -46,8 +66,9 @@ function showreminder(){
         },
         success : function(data){
             values=data;
-            var ihtml="";
+            var upComingListHtml="";
             for(var i=0;i<data.length;i++){
+                // console.log(i);
                 msg = data[i].message;
                 date = data[i].scheduled_datetime;
                 id=data[i].id;
@@ -62,7 +83,8 @@ function showreminder(){
    
 }
 
-
+// urem = 0;
+// premin = 0;
 
 function createreminder(msg,fulldate,id,phone,i){
     var newDate = new Date();
@@ -74,23 +96,30 @@ function createreminder(msg,fulldate,id,phone,i){
     sec = newDate.getSeconds();
     ms = newDate.getMilliseconds();
     var today = new Date(todayYear,todayMonth,todayDate,hour,min,sec,ms);
-    
     //console.log(datetime);
     var datefull = datesplit(fulldate);
     // datefull = datefull.toDateTimeString();
     if(datefull >= today ){
-        
-        ihtml += '<li class="ui remind"><input name="idinp" type="hidden" value="'+id+'">'+'<p class="messagetext">'+msg+'</p>'+'<label class="ui label datelabel">' + datefull.toDateString() + ' at '+ datefull.toTimeString() +'</label> <div class="ui right floated red button deletebtn" onclick="deletereminder('+i+')"> Delete </div> <div class="ui teal button right floated editbtn" onclick="editreminder('+i+')"> Edit </div>  </li>' ;
+        upComingListHtml += '<li class="ui remind"><input name="idinp" type="hidden" value="'+id+'">'+'<p class="messagetext">'+msg+'</p>'+'<label class="ui label datelabel">' + datefull.toDateString() + ' at '+ datefull.toTimeString() +'</label> <div class="ui right floated red button deletebtn" onclick="deletereminder('+id+')"> Delete </div> <div class="ui teal button right floated editbtn" onclick="editUpComingReminder('+urem+')"> Edit </div>  </li>' ;
+        urem += 1;
     }
     else{
-        
-        jhtml += '<li class="ui pastremind"><input name="idinp" type="hidden" value="'+id+'">'+'<p class="pastmessagetext">'+msg+'</p>'+'<label class="ui label datelabel">'+  datefull.toDateString() + ' at '+ datefull.toTimeString() +'</label> <div class="ui right floated red button deletebtn" onclick="deletereminder('+i+')"> Delete </div> <div class="ui blue button right floated editbtn" onclick="editreminder('+i+')"> Remind Again </div>  </li>' ;
+        // console.log(premin);
+        pastListHtml += '<li class="ui pastremind"><input name="idinp" type="hidden" value="'+id+'">'+'<p class="pastmessagetext">'+msg+'</p>'+'<label class="ui label datelabel">'+  datefull.toDateString() + ' at '+ datefull.toTimeString() +'</label> <div class="ui right floated red button deletebtn" onclick="deletereminder('+id+')"> Delete </div> <div class="ui blue button right floated editbtn" onclick="editPastReminder('+premin+')"> Remind Again </div>  </li>' ;
+        premin += 1;
     }  
-    document.getElementById("listreminder").innerHTML = ihtml;
-    document.getElementById("listpastreminder").innerHTML = jhtml;
+    document.getElementById("listreminder").innerHTML = upComingListHtml;
+    document.getElementById("listpastreminder").innerHTML = pastListHtml;
 }
-function editreminder(i){
-    var item = document.getElementById("listreminder").children[i];
+function editUpComingReminder(i){
+     var item = document.getElementById("listreminder").children[i];
+     editreminder(item);
+}
+function editPastReminder(i){
+     var item = document.getElementById("listpastreminder").children[i];
+     editreminder(item);
+}
+function editreminder(item){
     str = "list-style-type";
     item.style.str   = "none";
     var id = item.children[0].value;
@@ -108,7 +137,7 @@ function editreminder(i){
 }
 
 function datesplit(date){
-    console.log(new Date());
+    // console.log(new Date());
     d = new Date(date);
     date = d.getDate();
     month = (d.getMonth());
@@ -129,8 +158,8 @@ function updatereminder(id){
     var phone = document.getElementById("newphn").value;
 
     date = date.toISOString();
-    console.log(date);
-    var new_values = {
+    // console.log(date);
+    var newvalues = {
         "message": msg,
         "phone_number": phone,
         "scheduled_datetime":date
@@ -138,11 +167,9 @@ function updatereminder(id){
     $.ajax({
         url :"/reminders/"+id+"/",
         type : "PUT",
-        dataType : "JSON",
-        data:new_values,
+        data : JSON.stringify(newvalues),
         headers: {
-            'Authorization': 'Token '+token,
-            'Content-Type': 'application/json'
+            'Authorization': 'Token '+token
         }
     });
     showreminder();
@@ -152,15 +179,31 @@ function deletereminder(id){
         url :"/reminders/"+id+"/",
         type : "DELETE",
         headers: {
-            'Authorization': 'Token '+token,
-            'Content-Type': 'application/json'
+            'Authorization': 'Token '+token
+        },
+        success: function(){
+            showreminder();
         }
     });
     showreminder();
 }
 
-function pastreminders(){
-    var newDate = new Date();
-    //var datetime = "LastSync: " + newDate.getDay() + " @ " + newDate.getMonth();
-    console.log(newDate);
+function logout(){
+    sessionStorage.removeItem('token');
+    window.location.href = "/";
+}
+
+function validate(){
+    err = document.getElementById('errspan');
+    var reg = new RegExp(/^\d+$/);
+    if((document.getElementsByClassName('phone')[0].value == "") ||  (document.getElementsByClassName('phone')[0].value == reg)){
+        err.innerHTML = "Invalid Phone Number";
+        // console.log("here");
+    }
+    else{
+        // console.log("bye");
+        err.innerHTML = "";
+        err.value = "";
+    }
+
 }

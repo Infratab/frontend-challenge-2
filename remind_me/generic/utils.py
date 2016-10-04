@@ -30,6 +30,7 @@ def get_data_from_request(request):
         except:
             # POST request through web-site ajax request
             logger.debug("Trying to fetch from request.POST")
+            print(request.query_params)
             content = request.POST
 
     logger.debug("content in get_data_from_request: %s" %content)

@@ -18,7 +18,6 @@ class Reminders(APIView):
         data = get_data_from_request(request)
         serializer = ReminderSerializer(data=data)
         customer = request.user.customer
-
         if serializer.is_valid():
             serializer.save(customer=customer)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -66,7 +65,9 @@ class Reminders(APIView):
         else:
             if request.user.customer == reminder.customer:
                 data = get_data_from_request(request)
+                print(data)
                 serializer = ReminderSerializer(instance=reminder, data=data)
+                print(serializer.initial_data)
                 print(serializer.is_valid())
 
                 if serializer.is_valid():
