@@ -30,7 +30,8 @@ We would like you to follow the Github flow to participate in the coding challen
 4. run - `vagrant ssh`
 5. Open http://localhost:3000/ in browser, if you see `Challenge accepted!` text in the browser that means server is successfully running
 6. Please find `index.html` in the `remind_me/public` folder
-7. Now you can start your coding!
+7. Create a new folder `static` under `remind_me` for js and css files.
+8. Now you can start your coding!
 
 #### Challenge
 For this challenge, we provide you a server which provides you with the [following api endpoints](https://github.com/Infratab/frontend-challenge-2/blob/master/API.md).
