@@ -96,10 +96,8 @@ function validate(){
 	var pass = document.getElementById('passwordtextbox');
 	var cpas = document.getElementById('cpasswordtextbox');
 
-    if($("#passwordtextbox").val().length < 6){
-    	err.innerHTML = "Passsword field must be atleast 5 characters";
-    }
-    if(pass.value != cpas.value){
+    
+    if($("#passwordtextbox").val().length > 6 && pass.value != cpas.value){
     	err.innerHTML = "Password and confirm Password do not match.";
     }
     // else{
@@ -123,5 +121,16 @@ function emailValidate(){
     	err.innerHTML="";
     	err.value="";
     }
+}
+function passwordValidate(){
+  var err  = document.getElementById('err');
+  var pass = document.getElementById('passwordtextbox');
+  if($("#passwordtextbox").val().length < 6){
+      err.innerHTML = "Passsword field must be atleast 5 characters";
+    }
+  else{
+    err.innerHTML="";
+    err.value="";
+  }
 }
 
