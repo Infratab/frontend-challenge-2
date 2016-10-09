@@ -10,10 +10,10 @@
 .login{
 	padding: 10px;
 }
-#err{
+/*#err{
 	display:none;
 	color: red;
-}
+}*/
 .emailtextbox, .passwordtextbox{
 	/*width: 500px !important;
 	margin-left: 10px !important;*/
@@ -71,7 +71,7 @@ li p{
 .pastremind p{
 	text-decoration: line-through;
 }
-#errspan{
+#errspan,#err{
 	color: red;
 	padding-left: 15px;
 	padding-top: 10px;

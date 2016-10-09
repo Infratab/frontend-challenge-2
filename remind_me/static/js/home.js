@@ -70,8 +70,8 @@ function signup(){
         	token = data.token;
           if(textStatus == "success"){
           	sessionStorage.setItem('token', token);
-          	console.log(data);
-          	console.log(token);
+          	// console.log(data);
+          	// console.log(token);
           	sessionStorage.setItem('username',username);
           	window.location.href = "/static/addreminder.html";
           }
@@ -81,7 +81,47 @@ function signup(){
           	// err.innerHTML = "Invalid Username or Passsword";
           	// err.style.display = "block";
           }
-    	}
+    	},
+      error: function(data){
+        var err  = document.getElementById('err');
+        err.innerHTML = data.responseText.slice(22,-3);
+        err.style.display = "block";
+       
+      }
     });
+}
+
+function validate(){
+	var err  = document.getElementById('err');
+	var pass = document.getElementById('passwordtextbox');
+	var cpas = document.getElementById('cpasswordtextbox');
+
+    if($("#passwordtextbox").val().length < 6){
+    	err.innerHTML = "Passsword field must be atleast 5 characters";
+    }
+    if(pass.value != cpas.value){
+    	err.innerHTML = "Password and confirm Password do not match.";
+    }
+    // else{
+    // 	err.innerHTML="";
+    // 	err.value="";
+    // }
+	
+}
+function emailValidate(){
+	var err  = document.getElementById('err');
+	var email = document.getElementById('emailtextbox');
+	var reg = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+	var bool = reg.test(email.value)
+	// console.log("here");
+	if(!bool){
+		// console.log("here1");
+		err.innerHTML = "Invalid Email ID";
+	}
+	else{
+		console.log("here2");
+    	err.innerHTML="";
+    	err.value="";
+    }
 }
 

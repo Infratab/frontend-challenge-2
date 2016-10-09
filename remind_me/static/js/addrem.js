@@ -54,7 +54,7 @@ var pastListHtml = "";
     
 function showreminder(){
     // var token = '2200d7faf10f34cd9df0732fe49246560f282a4a';
-    console.log(token);
+    console.log("hw");
     if(token === null){
         sessionStorage.setItem('Error',"Please  login to continue");
     window.location.href = '/';
@@ -138,7 +138,7 @@ function editreminder(item){
     itemhtml += ' <div class="cancelbtn ui red button" type="clear" onclick="showreminder()"> Cancel </div>';
     item.innerHTML = " ";
     item.innerHTML = itemhtml;
-    jQuery('#newdate').datetimepicker({});
+    jQuery('#newdate').datetimepicker({startDate:new Date});
 }
 
 function datesplit(date){
@@ -158,6 +158,7 @@ function datesplit(date){
 
 function updatereminder(id){
     // var token = '2200d7faf10f34cd9df0732fe49246560f282a4a';
+    err = document.getElementById('errspan');
     var msg = document.getElementById("newmsg").value;
     var date = new Date(document.getElementById("newdate").value);
     var phone = document.getElementById("newphn").value;
@@ -175,9 +176,16 @@ function updatereminder(id){
         data : JSON.stringify(newvalues),
         headers: {
             'Authorization': 'Token '+token
+        },
+        success:function(){
+            showreminder();
+        },
+        error:function(data){
+            var errmsg = data;
+            document.getElementById('errspan').innerHTML = data.responseText.slice(22,-3);
         }
     });
-    showreminder();
+    // showreminder();
 }
 function deletereminder(id){
     $.ajax({
@@ -187,10 +195,13 @@ function deletereminder(id){
             'Authorization': 'Token '+token
         },
         success: function(){
+            location.reload(true);
+            // window.top.location = window.top.location
+        },
+        error : function(){
             showreminder();
         }
     });
-    showreminder();
 }
 
 function logout(){

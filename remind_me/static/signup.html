@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="/static/styles/semantic.min.css">
 	<script src="/static/js/semantic.min.js"></script>
 	<link rel="stylesheet" href="/static/styles/custom.css">
-	<script src="/static/js/custom.js"></script>
+	<script src="/static/js/home.js"></script>
 </head>
 <body>
 	<header class="ui center aligned header topheader">
@@ -14,19 +14,20 @@
 	</header>
 	<!-- <form class="ui form" > --> <!-- {% csrf_token %} -->
 		<div class="ui stackable grid container">
+			
 			<h3> Please fill the following details to sign up.</h3>
-			<span  id="err"></span>
+			<span class="ui stackable row"  id="err"></span>
 			<div class="ui input row email">
 				<label class="two wide column emaillabel">Email</label>
-				<input class="ui i ten wide column emailtextbox " type="text" name="username" id="emailtextbox" required=""> 
+				<input class="ui i ten wide column emailtextbox " type="email" name="username" id="emailtextbox" onblur="emailValidate()"> 
 			</div>
 			<div class="ui input row pass">
 				<label class="ui two wide column passlabel">Password</label>
-				<input type="password" class="ui ten wide column passwordtextbox" name="password" id="passwordtextbox" required="">
+				<input type="password" class="ui ten wide column passwordtextbox" name="password" id="passwordtextbox">
 			</div>
 			<div class="ui input row pass">
 				<label class="ui two wide column passlabel">Confirm Password</label>
-				<input type="password" class="ui ten wide column passwordtextbox" name="password" id="cpasswordtextbox" required="">
+				<input type="password" class="ui ten wide column passwordtextbox" name="password" id="cpasswordtextbox"  onblur="validate()">
 			</div>
 			<div class="ui center aligned  login">
 				<button class="ui blue icon button " type="submit" id="signupbtn" onclick="signup()"> <i class="ui user icon"> </i> Sign Up</button>
