@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="/static/js/jquery.min.js"></script>
+	<link rel="stylesheet" href="/static/styles/semantic.min.css">
+	<script src="/static/js/semantic.min.js"></script>
+	<link rel="stylesheet" href="/static/styles/custom.css">
+	<link rel="stylesheet"  href="/static/styles/jquery.datetimepicker.min.css">
+	<script src="/static/js/jquery.datetimepicker.full.min.js"></script>
+	<script src="/static/js/addrem.js"></script>
+</head>
+<body onload="showreminder()">
+<nav class="ui topbar">
+	<div class="ui text menu">
+		<div class="ui right dropdown item">
+			<span class="topbarspan"></span>
+			<i class="dropdown icon drpdwn"></i>
+	    	<div class="menu">
+	      		<div class="item" id="logout" onclick="logout()">Logout </div>
+	    	</div>
+		</div>
+	 </div>
+
+
+</nav>
+<div class="middle">
+	<span id="errspan"></span>
+	<div class="ui text addrem"> Add Reminder </div>
+	<div class="ui input msgdiv">
+		<input class="message" type="text" name="message" placeholder="Your message here" required="">
+	</div>
+	<div class="ui input phndiv">
+		<input class="phone" type="number" name="phone_number" placeholder="Your phone number" onkeydown="validate()">
+	</div>
+	<div class="ui icon input caldiv">
+		<input class="date" type="text" name="scheduled_datetime" id="datetimepicker" required="" placeholder="Select Date and Time">
+		<i class="green calendar icon"></i>
+	</div>
+	<div class="addbtn ui teal button" type="submit" onclick="addreminder()">
+		Add
+	</div>
+</div>
+<div class="upcomingreminders">
+	<div class="ui text uprem">Upcoming reminders</div>
+	<div class="ui list reminderlist"  id="reminderlist">
+		<ul id="listreminder">
+		</ul>
+	</div>
+</div>
+<div class="pastreminders">
+	<div class="ui text pastrem">Past reminders</div>
+	<div class="ui list reminderlistpast"  id="reminderlistpast">
+		<ul id="listpastreminder">
+		</ul>
+	</div>
+</div>
+
+</body>
+<script type="text/javascript">
+	jQuery('#datetimepicker').datetimepicker({});
+	$('.dropdown').dropdown({transition: 'drop'});
+
+</script>
+</html>
