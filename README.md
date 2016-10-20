@@ -24,13 +24,11 @@ We would like you to follow the Github flow to participate in the coding challen
 3. Email the compressed folder to careers@infratab.in or to the person with whom you have been interacting!
 
 ### Setup the project
-1. go to remind_me directory - `cd frontend-challenge-2/remind_me` 
-2. Install virtualbox and vagrant
-3. run - `vagrant up`
-4. run - `vagrant ssh`
-5. Open http://localhost:3000/ in browser, if you see `Challenge accepted!` text in the browser that means server is successfully running
-6. Please find `index.html` in the `remind_me/public` folder
-7. Create a new folder `static` under `remind_me` for js and css files.
+1. Change directory to report
+2. run `npm install`
+3. run `npm start`
+5. Open http://localhost:3001/ in browser, if you see `Challenge accepted!` text in the browser that means server is successfully running
+6. Please find `index.html` in the `public` folder
 8. Now you can start your coding!
 
 #### Challenge
