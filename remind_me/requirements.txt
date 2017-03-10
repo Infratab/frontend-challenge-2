@@ -1,5 +1,6 @@
 Django==1.8.2
 django-cors-headers==1.1.0
+dj-database-url==0.4.1
 django-extensions==1.5.7
 django-filter==0.11.0
 djangorestframework==3.2.3
@@ -9,3 +10,6 @@ model-mommy==1.2.6
 django-rest-auth==0.7.0
 pytz==2015.4
 arrow==0.7.0
+gunicorn==19.6.0
+psycopg2==2.6.1
+whitenoise==2.0.6
