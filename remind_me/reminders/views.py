@@ -1,4 +1,5 @@
 import logging
+from django.utils.decorators import method_decorator
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -7,14 +8,15 @@ from rest_framework import status
 from reminders.serializers import ReminderSerializer
 from reminders.models import Reminder
 from generic.utils import get_data_from_request
+from generic.decorators import requires_auth
 
 logger = logging.getLogger(__name__)
 
 
 class Reminders(APIView):
 
-    @staticmethod
-    def post(request):
+    @method_decorator(requires_auth)
+    def post(self, request):
         data = get_data_from_request(request)
         serializer = ReminderSerializer(data=data)
         customer = request.user.customer
@@ -26,8 +28,8 @@ class Reminders(APIView):
         logger.error("Invalid data in request from {0} : {1}".format(customer, serializer.errors))
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    @staticmethod
-    def get(request, id=None):
+    @method_decorator(requires_auth)
+    def get(self, request, id=None):
         if id is None:
             reminders = request.user.customer.reminders.all()
             serializer = ReminderSerializer(reminders, many=True)
@@ -44,8 +46,8 @@ class Reminders(APIView):
                     return Response(data=serializer.data)
                 return Response(status=status.HTTP_403_FORBIDDEN)
 
-    @staticmethod
-    def delete(request, id):
+    @method_decorator(requires_auth)
+    def delete(self, request, id):
         try:
             reminder = Reminder.objects.get(id=int(id))
         except Reminder.DoesNotExist:
@@ -57,8 +59,8 @@ class Reminders(APIView):
                 return Response(status=status.HTTP_204_NO_CONTENT)
             return Response(status=status.HTTP_403_FORBIDDEN)
 
-    @staticmethod
-    def put(request, id):
+    @method_decorator(requires_auth)
+    def put(self, request, id):
         try:
             reminder = Reminder.objects.get(id=int(id))
         except Reminder.DoesNotExist:
